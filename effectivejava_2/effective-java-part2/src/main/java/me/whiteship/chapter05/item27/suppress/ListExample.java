@@ -12,14 +12,17 @@ public class ListExample {
         if (a.length < size) {
             /**
              * 이 애노테이션을 왜 여기서 선언했는지..
+             *  -> '좁은 범위'
              */
             @SuppressWarnings("unchecked")
             T[] result = (T[]) Arrays.copyOf(elements, size, a.getClass());
             return result;
         }
         System.arraycopy(elements, 0, a, 0, size);
+
         if (a.length > size)
             a[size] = null;
+
         return a;
     }
 
