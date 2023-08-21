@@ -4,7 +4,7 @@
 https://devfunny.tistory.com/573
 
 ### 2) 어노테이션 @Retention 속성인 RetentionPolicy
-##### RetentionPolicy.SOURCE : 소스 코드(.java)까지 남아있는다.
+#### RetentionPolicy.SOURCE : 소스 코드(.java)까지 남아있는다.
 
 [예제 : Lombok의 @Getter]
 ```
@@ -16,7 +16,7 @@ public @interface Getter {
 ```
 - 컴파일될때 실제 getter 메서드가 바이트코드로 생성된다.
 
-##### RetentionPolicy.CLASS : 클래스 파일(.class)까지 남아있는다.(= 바이트 코드)
+#### RetentionPolicy.CLASS : 클래스 파일(.class)까지 남아있는다.(= 바이트 코드)
 [예제 : Lombok의 @NonNull]
 ```
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.LOCAL_VARIABLE, ElementType.TYPE_USE})
@@ -31,7 +31,7 @@ public @interface NonNull {
 - .class 파일까지는 어노테이션이 살아있고, 런타임에서 클래스로더가 해당 클래스를 읽어오면 사라진다.
 - jar 파일같은 경우에는 .class 파일만 포함되어있기 때문에 Source가 아닌 Class 사용이 필요한 때가 있다.
 
-##### RetentionPolicy.RUNTIME : 런타임까지 남아있는다.(= 사실상 안 사라진다.)
+#### RetentionPolicy.RUNTIME : 런타임까지 남아있는다.(= 사실상 안 사라진다.)
 [예제 : @Autowired]
 ```
 @Target({ElementType.CONSTRUCTOR, ElementType.FIELD, ElementType.METHOD, ElementType.ANNOTATION_TYPE})
