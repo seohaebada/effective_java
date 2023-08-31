@@ -20,6 +20,7 @@ public class Union {
 //        Set<Integer> stooges = Set.of(1, 2, 3);
         Set<String> all = union(guys, stooges);
 
+        // 합친 다음 꺼내서 쓸때, 타입 변환시 오류 발생할 수 있음 -> 컴파일 타임에 체크하려면 제네릭 사용
         for (String o : all) {
             System.out.println(o);
         }

@@ -11,6 +11,7 @@ import java.util.List;
  * @param <E>
  */
 // E[]를 이용한 제네릭 스택 (170-174쪽)
+    // 제네릭에 여러개 선언할 경우 클래스 -> 인터페이스 순서로. (<E extends Number & Serializable>)
 public class Stack<E extends Number> { // Number 배열로 바뀐다.
     // Object -> Number 로 타입캐스팅시 런타임오류 발생!
 
