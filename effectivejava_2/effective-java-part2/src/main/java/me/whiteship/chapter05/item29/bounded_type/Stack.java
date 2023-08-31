@@ -6,8 +6,14 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * 한정적 타입 매개변수
+ * @param <E>
+ */
 // E[]를 이용한 제네릭 스택 (170-174쪽)
-public class Stack<E extends Number> {
+public class Stack<E extends Number> { // Number 배열로 바뀐다.
+    // Object -> Number 로 타입캐스팅시 런타임오류 발생!
+
     private Number[] elements;
     private int size = 0;
     private static final int DEFAULT_INITIAL_CAPACITY = 16;

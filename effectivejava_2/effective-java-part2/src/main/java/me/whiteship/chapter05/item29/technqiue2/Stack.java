@@ -27,7 +27,8 @@ public class Stack<E> {
             throw new EmptyStackException();
 
         // push에서 E 타입만 허용하므로 이 형변환은 안전하다.
-        @SuppressWarnings("unchecked") E result = (E) elements[--size];
+        @SuppressWarnings("unchecked")
+        E result = (E) elements[--size];
 
         elements[size] = null; // 다 쓴 참조 해제
         return result;

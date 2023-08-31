@@ -43,6 +43,7 @@ public class Stack {
         for (String arg : List.of("a", "b", "c"))
             stack.push(arg);
         while (!stack.isEmpty())
+            // Object 타입이므로 형변환이 필수
             System.out.println(((String)stack.pop()).toUpperCase());
     }
 }
