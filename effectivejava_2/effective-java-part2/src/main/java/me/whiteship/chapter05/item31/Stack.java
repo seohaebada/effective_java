@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.EmptyStackException;
 
+// pecs (펙스)
 // 와일드카드 타입을 이용해 대량 작업을 수행하는 메서드를 포함한 제네릭 스택 (181-183쪽)
 public class Stack<E> {
     private E[] elements;
@@ -43,13 +44,17 @@ public class Stack<E> {
     }
 
     // 코드 31-1 와일드카드 타입을 사용하지 않은 pushAll 메서드 - 결함이 있다! (181쪽)
+    // (Integer을 Number에 넣을 수 없다)
+    // Iterable<Number>만 받을 수 있음
+    // E라는 타입만 받고있어서 넣을 수 없는것
 //    public void pushAll(Iterable<E> src) {
 //        for (E e : src)
 //            push(e);
 //    }
 
      // 코드 31-2 E 생산자(producer) 매개변수에 와일드카드 타입 적용 (182쪽)
-    public void pushAll(Iterable<? extends E> src) {
+    // E 보다 하위타입
+    public void pushAll(Iterable<? extends E> src) { // 상위 한정
         for (E e : src)
             push(e);
     }
@@ -61,21 +66,30 @@ public class Stack<E> {
 //    }
 
     // 코드 31-4 E 소비자(consumer) 매개변수에 와일드카드 타입 적용 (183쪽)
-    public void popAll(Collection<? super E> dst) {
+    // E 타입의 super 타입만 가능 (Integer 이면 Number, Object가 가능)
+    // Object는 Number의 super 이므로 가능
+    public void popAll(Collection<? super E> dst) { // 하위 한정
         while (!isEmpty())
+            // 꺼내서 Consumer에 전달
+            // Consumer 역할을 하는 파라미터에 전달함 -> super
             dst.add(pop());
     }
 
     // 제네릭 Stack을 사용하는 맛보기 프로그램
     public static void main(String[] args) {
+        // Number는 Integer의 상위
         Stack<Number> numberStack = new Stack<>();
         Iterable<Integer> integers = Arrays.asList(3, 1, 4, 1, 5, 9);
         numberStack.pushAll(integers);
 
+        // Number의 하위타입이므로 가능
         Iterable<Double> doubles = Arrays.asList(3.1, 1.0, 4.0, 1.0, 5.0, 9.0);
         numberStack.pushAll(doubles);
 
+        // 꺼낼때는 타입보다 더 높은 타입을 꺼낼 수 있음
+        // Integer 배열을 Object 배열의 변수에 선언할 수 있었음
         Collection<Object> objects = new ArrayList<>();
+        // objects에 numberStack 원소들을 넣는것이다.
         numberStack.popAll(objects);
 
         System.out.println(objects);

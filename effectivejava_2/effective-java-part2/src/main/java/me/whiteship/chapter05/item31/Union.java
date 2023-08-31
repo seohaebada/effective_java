@@ -5,6 +5,7 @@ import java.util.Set;
 
 // 코드 30-2의 제네릭 union 메서드에 와일드카드 타입을 적용해 유연성을 높였다. (185-186쪽)
 public class Union {
+    // 데이터를 받아와서 넣어주므로 프로듀서 (pe)
     public static <E> Set<E> union(Set<? extends E> s1,
                                    Set<? extends E> s2) {
         Set<E> result = new HashSet<>(s1);
@@ -24,6 +25,7 @@ public class Union {
         doubles.add(4.0); 
         doubles.add(6.0); 
 
+        // Number 가 Integer, Double의 상위타입이므로
         Set<Number> numbers = union(integers, doubles);
 
 //      // 코드 31-6 자바 7까지는 명시적 타입 인수를 사용해야 한다. (186쪽)

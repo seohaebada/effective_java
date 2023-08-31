@@ -29,7 +29,9 @@ public class BoxExample {
 
     public static void main(String[] args) {
         ArrayList<Box<Integer>> listOfIntegerBoxes = new ArrayList<>();
-        BoxExample.addBox(10, listOfIntegerBoxes);
+        // 타입 추론이 가능하므로 생략 가능 (제네릭 메서드 호출시)
+        // 리턴타입 추론 (<Integer>)
+        BoxExample.<Integer>addBox(10, listOfIntegerBoxes);
         BoxExample.addBox(20, listOfIntegerBoxes);
         BoxExample.addBox(30, listOfIntegerBoxes);
         BoxExample.outputBoxes(listOfIntegerBoxes);
@@ -37,6 +39,7 @@ public class BoxExample {
         // Target Type
         List<String> stringlist = Collections.emptyList();
         List<Integer> integerlist = Collections.emptyList();
-        BoxExample.processStringList(Collections.emptyList());
+        // 리턴타입을 컴파일러가 추론해주는구나.
+        BoxExample.processStringList(Collections.<String>emptyList());
     }
 }

@@ -7,6 +7,10 @@ import java.util.List;
 public class Dangerous {
     // 코드 32-1 제네릭과 varargs를 혼용하면 타입 안전성이 깨진다! (191-192쪽)
     static void dangerous(List<String>... stringLists) {
+        // 허용하지않음
+        // 근데 가변인자를 사용하면 내부적으로 생성함
+//        List<String>[] myList = new ArrayList<String>[];
+
         List<Integer> intList = List.of(42);
         Object[] objects = stringLists;
         objects[0] = intList; // 힙 오염 발생

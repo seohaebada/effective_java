@@ -7,10 +7,13 @@ import java.util.Arrays;
 import java.util.List;
 
 // 와일드카드 타입을 실제 타입으로 바꿔주는 private 도우미 메서드 (189쪽)
+// E : 특정한 타입, ? : 불특정 타입 (특정할 수 없는 임의의 타입)
+// ?를 꺼내는건 괜찮은데, 어딘가에 넣을때 문제가 발생
 public class Swap {
 
-    public static <E> void swap(List<E> list, int i, int j) {
+    public static <E> void swap(List<E> list, int i, int j) { // 타입을 안다.
 //    public static void swap(List<?> list, int i, int j) {
+        // set 두번째 매개변수에 불특정 타입을 넘길 수 없다.
         list.set(i, list.set(j, list.get(i)));
 //        swapHelper(list, i, j);
     }
