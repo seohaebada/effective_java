@@ -14,6 +14,10 @@ public class Favorites2 {
 
     @SuppressWarnings("unchecked")
     public <T> T get(TypeRef<T> typeRref) {
+        // Type -> T 형변환
+        // 안전하지 않은 이유? Oops.java 파일 참고
+        // ((Class<T>)typeRref.getType()).cast(favorites.get(typeRref))
+        // 이거나 아래 코드나 동일 (차라리 단순하게 가자)
         return (T)(favorites.get(typeRref));
     }
 
