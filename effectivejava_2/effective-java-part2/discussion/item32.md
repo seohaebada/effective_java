@@ -1,4 +1,4 @@
-## 아이템 31. 한정적 와일드카드를 사용해 API 유연성을 높이라
+## 아이템 32. 제네릭과 가변인수를 함께 쓸 때는 신중하라
 
 ### 1) 포스팅 정리
 https://devfunny.tistory.com/582
@@ -60,7 +60,8 @@ public class SafePickTwo {
 - a가 String이고 b가 String이라면, result의 타입은 List<String>
 - a가 String이고 b가 Integer라면, result의 타입은 List<Object>
 
-> List.of 구현로직
+
+#### List.of 구현로직
 ```
 @SafeVarargs
 @SuppressWarnings("varargs")
