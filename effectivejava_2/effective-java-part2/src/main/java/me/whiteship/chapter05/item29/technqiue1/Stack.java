@@ -51,6 +51,7 @@ public class Stack<E> {
         Stack<String> stack = new Stack<>();
         for (String arg : List.of("a", "b", "c"))
             stack.push(arg);
+
         while (!stack.isEmpty())
             System.out.println(stack.pop().toUpperCase());
     }
